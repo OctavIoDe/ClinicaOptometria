@@ -1,0 +1,102 @@
+{% extends 'layout.html' %}
+{% load usuarios_tags %}
+{% load static %}
+
+{% block content %}
+{% if user|sector:"Secretaria" or user|sector:"Gerencia" %}
+<br><br>
+{% include 'componentes/buscar_form.html' %}
+<br><br>
+<div class="row">
+    <div class="col-sm-3 text-white">
+        <!-- Turnos doctor -->
+        <div class="my-3 p-3 bg-gradient rounded shadow-lg" style="background-color: rgb(63, 129, 115);">
+            <h3 class="text-center py-3">
+                <span class="border-bottom border-dark border-3">
+                    Hoy
+                    {% if hoy %}
+                    <span class="badge rounded-pill align-text-bottom" style="background-color: #70d2da3b;">
+                        {{hoy.count}}
+                    </span>
+                    {% endif %}
+                </span>
+            </h3>
+            <!-- Pacientes de hoy que no fueron atentidos -->
+            {% if hoy %}
+            <ul class="list-group list-group-flush">
+                {% for turno in hoy %}
+                <li class="list-group-item bg-transparent">{{turno.paciente}}</li>
+                {% endfor %}
+            </ul>
+            {% else %}
+            <p>No hay turnos pendientes para hoy</p>
+            {% endif %}
+            <!---->
+        </div>
+    </div>
+
+    <div class="col-sm-9">
+        <div class="table-responsive bg-white my-3 p-3 rounded shadow-lg">
+            <div class="row mb-2">
+                <div class="col-6 text-center">
+                    <h6 class="border-bottom pb-2 mb-0">
+                        {{titulo}}
+                        {% if Turnos %}
+                        <span class="badge bg-info rounded-pill align-text-bottom">{{Turnos.count}}</span>
+                        {% endif %}
+                    </h6>
+                </div>
+                <div class="col-6">
+                    <div class="d-grid gap-2 col-6 mx-auto">
+                        <a type="buttom" class="btn btn-info btn-sm " href="{% url 'pacientes:agregar_turno' %}">
+                            <i class="fas fa-plus"></i>
+                            Agregar Turno
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% if Turnos %}
+            <table class="table table-borderless">
+                <thead>
+                    <tr class="text-center">
+                        <th>Paciente</th>
+                        <th>Fecha</th>
+                        <th>Asistencia</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for turno in Turnos %}
+                    <tr class="text-center">
+                        <td>{{turno.paciente}}</td>
+                        <td>
+                            {{turno.fecha}}
+                        </td>
+                        <td>
+                            {{turno.get_asistencia_display}}
+                        </td>
+                        <td>
+                            <a class="btn btn-sm d-flex align-self-center"
+                                href="{% url 'pacientes:editar_turno' turno.id %}">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% else %}
+            <h1 class="text-center my-3 lead">No hay turnos aún</h1>
+            {% endif %}
+        </div>
+        {% include 'componentes/paginacion.html' %}
+    </div>
+</div>
+{% else %}
+<div class="row d-flex justify-content-center">
+    <div class="col-8">
+        <h1 class="text-center my-5 lead">No tienes permiso para ver los turnos</h1>
+    </div>
+</div>
+{% endif %}
+{% endblock %}

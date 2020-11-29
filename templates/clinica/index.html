@@ -1,0 +1,200 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block aplicacion %}
+
+<main id=>
+  <link rel="stylesheet" href="{% static 'css/inicio.css' %}">
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light">
+
+    <!-- Icono en el navbar -->
+
+    <a class="navbar-brand ml-3 mr-3" href="http://127.0.0.1:8000/"><img src="{% static 'img/logoCO1.png' %}"
+        alt="Icono"></a>
+
+    <!-- Fin Icono en el navbar -->
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+      aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav ml-auto mr-3 my-3">
+        <li class="nav-item active">
+          <!-- Boten del navbar que lleva al Index.html -->
+
+          <a class="btn btn-outline-success btn-lg" type="button" href="{% url 'usuarios:entrar' %}">
+            <i class="fas fa-sign-in-alt"></i>
+            Login<span class="sr-only">(current)</span>
+          </a>
+
+          <!-- Fin Boten del navbar que lleva al Index.html -->
+
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <!-- Navbar -->
+
+
+  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="{% static 'img/opt_carrousel2.jpg' %}" class="d-block w-100 img-fluid" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="{% static 'img/opt_carrousel1.jpg' %}" class="d-block w-100 img-fluid" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="{% static 'img/opt_carrousel3.jpg' %}" class="d-block w-100 img-fluid" alt="...">
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </a>
+  </div>
+
+  <div class="p-3 mb-3 bg-secondary bg-gradient"></div>
+
+  <div class="container">
+    <div class="row row-col">
+      <div class="col">
+        <h2>Horarios</h2>
+        <p>Lunes a viernes de 08:00 a 20:00 hs</p>
+      </div>
+      <div class="col">
+        <h2>Guardias</h2>
+        <p>Sábados de 08:00 a 19:00 y domingos de 09:00 a 19:00 hs.</p>
+      </div>
+    </div>
+  </div>
+  <br>
+
+  <div class="realizados">
+    <h1>ESTUDIOS QUE REALIZAMOS</h1>Contamos con equipos de última generación que
+    incrementan la eficacia en el diagnóstico y detección precoz de las enfermedades.
+    <br><br>
+    <div class="container">
+      <div class="row est-col">
+        <div class="col">
+          <h2>TOMOGRAFIA –&nbsp; ANGIO OCT</h2>
+          <p allign="justify">Dicho equipo nos permitirá realizar el estudio conocido como OCT o tomografía del
+            nervio óptico para aquellos pacientes que padezcan de degeneración macular relacionada con la edad,
+            agujeros maculares, tumores, otros tipos de maculopatías, membranas epiretinales maculares,
+            estudios de capa de fibras en pacientes con glaucoma, edema macular en pacientes diabéticos o en
+            alteraciones del segmento anterior del ojo.
+          </p>
+          <p allign="justify">La tomografía de coherencia óptica (OCT) es una técnica que permite la
+            visualización de las estructuras oculares in vivo de una manera similar a los ultrasonidos
+            pero empleando la emisión de ondas de luz en vez de ondas acústicas. Estudia el estado morfológico de la
+            retina en pacientes con degeneración macular asociada a la edad y determina la utilidad clínica actual de
+            este sistema en el manejo de esta enfermedad.
+          </p>
+          <p allign="justify">Este instrumento mide gracias a un interferómetro el tiempo que tarda la luz en ser
+            reflejada desde los diversos tejidos lo cual depende de la microestructura de los mismos. La luz es emitida
+            por una fuente de luz superluminiscente de láser diodo con una longitud de onda de 840 nm y con una
+            intensidad de
+            200 µW la cual es considerada como inocua para el ojo.
+          </p>
+        </div>
+        <div class="col">
+          <img class="d-block w-100" src="{% static 'img/estd1.jpg' %}" alt="...">
+        </div>
+      </div>
+    </div>
+    <br><br>
+
+    <div class="container">
+      <div class="row est-col">
+        <div class="col">
+          <img class="d-block w-100" src="{% static 'img/estd2.jpg' %}" alt="...">
+        </div>
+        <div class="col">
+          <h2>TOMOGRAFIA –&nbsp; ANGIO OCT</h2>
+          <p allign="justify">La retinografía es un examen ocular en el que se usa el medio de contraste fluorescína y
+            una cámara especial para tomar fotos y analizar la circulación sanguínea de la retina y
+            la coroides.
+          </p>
+          <p allign="justify">Se administran gotas oculares que hacen dilatar la pupila (gotas midriáticas).
+            El paciente coloca el mentón en un apoya-barbilla y la frente en una barra de soporte para mantener la
+            cabeza quieta durante el examen.
+          </p>
+          <p allign="justify">Se toman fotografías del interior del ojo y luego se inyecta el medio de contraste en una
+            vena,
+            usualmente en la parte interior del codo (vena antecubital). A medida que se inyecta el medio de contraste,
+            se toma una serie de fotografías; luego, se retira la aguja y se aplica presión en el sitio de la inyección
+            durante varios minutos.
+          </p>
+          <p allign="justify">Se toman más fotografías hasta 20 minutos después de la inyección.
+            Se puede presentar alergia al medio de contraste pero es poco común, por lo que antes del
+            examen se tomarán los antecedentes de alergias.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <br>
+
+
+  <!-- Footer -->
+  <footer class="page-footer font-small teal pt-4 bg-secondary text-white bg-gradient">
+
+    <!-- Footer Text -->
+    <div class="container-fluid text-center ">
+
+      <!-- Grid row -->
+      <div class="row">
+
+        <!-- Contacto  -->
+        <div class="col-md-6 mt-md-0 mt-3 ">
+          <h5 id="Contact" class="text-uppercase font-weight-bold ">Contacto</h5>
+
+          <!-- Ubicacion  -->
+          <h6 class="text-uppercase font-weight-bold mail">
+            <i class="fas fa-map-marker-alt"></i>
+            Ubicacion
+            <p class="fnt-smll">Calle falsa 123</p>
+          </h6>
+          <!-- Fin Ubicacion  -->
+
+
+        </div>
+        <!-- Fin Contacto  -->
+
+        <hr class="clearfix w-100 d-md-none pb-3">
+
+
+        <div class="col-md-6 mb-md-0 mb-3 text-center">
+
+      
+          <p class="float-right ml-3 btn btn-success"><a href="#"><i class="fas fa-chevron-up text-primary"></i></a></p>
+
+        </div>
+
+      </div>
+      <!-- Grid row -->
+
+    </div>
+    <!-- Footer Text -->
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center ">
+      © {{date|date:"Y"}} Copyright | Clinica Optometria
+    </div>
+    <!-- Fin Copyright -->
+
+  </footer>
+  <!-- Fin Footer -->
+  {% endblock %}
